@@ -1,0 +1,114 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /community
+spring:
+  application:
+    name: community
+
+  thymeleaf:
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/community?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    #    url: jdbc:mysql://localhost:3306
+    username: root
+    password: 123456
+
+  mail:
+    # SMTP服务器域名
+    host: smtp.qq.com
+    # 编码集
+    default-encoding: UTF-8
+    # 端口号
+#    port: 587
+    # 邮箱用户名
+    username: 2426243168@qq.com
+    # 授权码(注意不是邮箱密码！)
+    password: ifuweboweitfebed
+    # 协议：smtps
+    protocol: smtps
+    # 详细配置
+    properties:
+      mail:
+        smtp:
+          # 设置是否需要认证,如果为true,那么用户名和密码就必须的,
+          # 如果设置false,可以不设置用户名和密码
+          # (前提要知道对接的平台是否支持无密码进行访问的)
+          auth: true
+          # STARTTLS[1]  是对纯文本通信协议的扩展。
+          # 它提供一种方式将纯文本连接升级为加密连接（TLS或SSL）
+          # 而不是另外使用一个端口作加密通信。
+          starttls:
+            enable: true
+            required: true
+
+
+
+    # 发送者邮箱相关配置
+#    mail:
+#      # SMTP服务器域名
+#      host: smtp.qq.com
+#      # 编码集
+#      default-encoding: UTF-8
+#      port: 587
+##      port: 465
+#      # 邮箱用户名
+#      username: 2426243168@qq.com
+#      # 授权码(注意不是邮箱密码！)
+#      password: ifuweboweitfebed
+#      # 协议：smtps
+#      protocol: smtps
+#  mail:
+#    host: smtp.qq.com
+#    port: 587
+#    username: 2426243168@qq.com
+#    password: ifuweboweitfebed
+#    protocol: smtp
+#    smtp:
+#      auth: true
+#      starttls:
+#        enable: true
+#    default-encoding: UTF-8
+    # 详细配置
+#      properties:
+#        mail:
+#          smtp:
+#            # 设置是否需要认证,如果为true,那么用户名和密码就必须的,
+#            # 如果设置false,可以不设置用户名和密码
+#            # (前提要知道对接的平台是否支持无密码进行访问的)
+#            auth: true
+#            # STARTTLS[1]  是对纯文本通信协议的扩展。
+#            # 它提供一种方式将纯文本连接升级为加密连接（TLS或SSL）
+#            # 而不是另外使用一个端口作加密通信。
+#            starttls:
+#              enable: false
+#              required: true
+#            soketFactoryClass: javax.net.ssl.SSLSocketFactory
+#    properties:
+#      mail:
+#        smtp:
+#          ssl:
+#            trust: "*"
+#          auth: true
+#          starttls:
+#            enable: true
+#          connectiontimeout: 5000
+#          timeout: 3000
+#          writetimeout: 5000
+
+
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.zqw.entity
+  configuration:
+    #开启驼峰命名
+    map-underscore-to-camel-case: true
+
+mybatis-plus:
+  type-aliases-package: com.zqw.entity # 别名扫描包
+
+logging:
+  level:
+    com.zqw: debug
